@@ -1,8 +1,36 @@
 <html>
     <head>
         <title>Kindle Highlights</title>
+        <style type="text/css">
+            .column {
+              float: left;
+              padding: 10px;
+            }
+
+            .left {
+              width: 7%;
+            }
+
+            .right {
+              width: 93%;
+            }
+
+            /* Clear floats after the columns */
+            .row:after {
+              content: "";
+              display: table;
+              clear: both;
+            }
+        </style>
     </head>
     <body>
-        <h1>Hello, {{ user.username }}!</h1>
+    	<h1>{{ title }}</h1>
+
+        {% for date, quote in data.items() %}
+        <div class="row">
+        	<div class="column left">{{ date }}</div>
+        	<div class="column right">{{quote}}</div>
+        </div>
+        {% endfor %}
     </body>
 </html>
